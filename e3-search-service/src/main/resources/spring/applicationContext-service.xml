@@ -10,11 +10,12 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
-	<context:component-scan base-package="cn.e3mall.search.service"></context:component-scan>
+	<context:component-scan base-package="cn.e3mall.search"></context:component-scan>
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="e3-search"/>
 	<dubbo:registry protocol="zookeeper" address="192.168.25.123:2181"/>	
 	<dubbo:protocol name="dubbo" port="20882"></dubbo:protocol>
 	<dubbo:service interface="cn.e3mall.search.service.SearchItemService" ref="searchItemServiceImpl" timeout="600000"/>
+	<dubbo:service interface="cn.e3mall.search.service.SearchService" ref="searchServiceImpl" timeout="600000"/>
 </beans>
 
